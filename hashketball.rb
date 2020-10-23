@@ -127,4 +127,120 @@ def game_hash
   }
 end
 
-# Write code here
+
+def num_points_scored (player)
+game_hash.each{|key, value|
+value.each{|nkey, teamvalue|
+if teamvalue == game_hash[key][:players]
+  teamvalue.each{ |stats|
+  stats.each{|stat, final|
+  if final == player
+   return stats[:points]
+  end
+  }
+  }
+end
+}
+}
+end
+
+def shoe_size (player)
+game_hash.each{|key, value|
+value.each{|nkey, teamvalue|
+if teamvalue == game_hash[key][:players]
+  teamvalue.each{ |stats|
+  stats.each{|stat, final|
+  if final == player
+   return stats[:shoe]
+  end
+  }
+  }
+end
+}
+}
+end
+
+def team_colors (team)
+game_hash.each{|key, value|
+value.each{|nkey, teamvalue|
+if team == teamvalue
+  return game_hash[key][:colors]
+end
+}
+}
+end
+
+def team_names 
+teams = [game_hash[:home][:team_name],game_hash[:away][:team_name]]
+end
+
+def player_numbers (team)
+ game_hash.each{|key, value|
+   value.each{|nkey, teamvalue|
+ numbers = []
+  if teamvalue == team
+    game_hash.each{|ikey, ivalue|
+   ivalue.each{|bkey, bvalue|
+    if bkey == :players && key == ikey
+    bvalue.each{|stats, trying|
+    stats.each{|final,something|
+    if final == :number
+    numbers << something
+    end
+    }
+    }
+    return numbers
+     end
+    }
+    }
+  end
+  }
+  }
+end
+
+def player_stats (player)
+game_hash.each{|key, value|
+
+value.each{|nkey, teamvalue|
+if teamvalue == game_hash[key][:players]
+  teamvalue.each{ |stats|
+  stats.each{|stat, final|
+  if final == player
+    return stats
+  binding.pry
+  end
+}
+}
+end
+}
+}
+end
+
+def big_shoe_rebounds 
+size = 0
+game_hash.each{|key, value|
+value.each{|nkey, teamvalue|
+if teamvalue == game_hash[key][:players]
+  teamvalue.each{ |stats, more|
+  stats.each{|stat, final|
+ if  size < stats[:shoe]
+   size = stats[:shoe]
+ end
+  
+
+}
+}
+end
+if teamvalue == game_hash[key][:players]
+teamvalue.each {|bstats, bmore|
+bstats.each {|statb, final|
+  if statb == :shoe && final == size
+  return bstats[:rebounds]
+  end
+
+}
+}
+end
+}
+}
+end
