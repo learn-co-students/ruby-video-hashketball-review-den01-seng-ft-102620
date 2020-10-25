@@ -200,3 +200,21 @@ def big_shoe_rebounds
     end
   end
 end
+
+def most_points_scored(hash)
+  most_points = 0
+  game_hash.each do |home_or_away, info|
+    info[:players].each do |keys, values|
+      if keys[:points] > most_points
+        most_points = keys[:points]
+      end
+    end
+  end
+  game_hash.each do |home_or_away, info|
+    info[:players].each do |keys, values|
+      if most_points == keys[:points]
+        return keys[:player_name]
+      end
+    end
+  end
+end
