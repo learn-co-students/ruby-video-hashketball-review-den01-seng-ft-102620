@@ -201,7 +201,7 @@ def big_shoe_rebounds
   end
 end
 
-def most_points_scored(hash)
+def most_points_scored
   most_points = 0
   game_hash.each do |home_or_away, info|
     info[:players].each do |keys, values|
