@@ -175,20 +175,41 @@ def player_stats(player_name)
   find_player_by_name(player_name)
 end 
 
-# player_stats("Kemba Walker")
+# def stat_reducer(stat)
+#   player = players.reduce do |baller, current_player|
+#     if baller[stat] < current_player[stat]
+#       baller = current_player
+#     end
+#     baller
+#   end
+#   player[stat]
+#   binding.pry
+# end 
+
+# stat_reducer(:points)
 
 def big_shoe_rebounds
-  big_shoe = 0
-  rebounds = 0 
-  players.each do |player|
-    if player[:shoe] > big_shoe
-      big_shoe = player[:shoe]
-      rebounds = player[:rebounds]
-    end 
+  player = players.reduce do |big_shoe_player, current_player|
+      if big_shoe_player[:shoe] < current_player[:shoe]
+        big_shoe_player = current_player
+      end
+         big_shoe_player
   end
-  rebounds 
+  player[:rebounds]
 end 
 
+
+# def big_shoe_rebounds
+#   big_shoe = 0
+#   rebounds = 0 
+#   players.each do |player|
+#     if player[:shoe] > big_shoe
+#       big_shoe = player[:shoe]
+#       rebounds = player[:rebounds]
+#     end 
+#   end
+#   rebounds 
+# end 
 
 
 # def players
