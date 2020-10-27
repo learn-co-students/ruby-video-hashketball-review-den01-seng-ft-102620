@@ -166,12 +166,10 @@ end
 
 
 def player_numbers(team_name)
-  numbers = []
-  find_team_by_name(team_name)[:players].each do |player|
-    numbers.push(player[:number])
-  end
-  numbers
-end 
+  find_team_by_name(team_name)[:players].map do |player|
+    player[:number]
+  end 
+end
 
 def player_stats(player_name)
   find_player_by_name(player_name)
