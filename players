@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/cassandrawhitty/code/labs/mod1/ruby-video-hashketball-review-den01-seng-ft-102620/hashketball.rb:134 :
+
+    [1;34m129[0m: 
+    [1;34m130[0m: [32mdef[0m [1;34mplayers[0m
+    [1;34m131[0m:   list = game_hash[[33m:home[0m][[33m:players[0m].concat game_hash[[33m:away[0m][[33m:players[0m]
+    [1;34m132[0m: [32mend[0m
+    [1;34m133[0m: 
+ => [1;34m134[0m: binding.pry
+    [1;34m135[0m: 
+    [1;34m136[0m: [32mdef[0m [1;34mnum_points_scored[0m(player_n)
+    [1;34m137[0m:   game_hash.each [32mdo[0m |home_or_away, info|
+    [1;34m138[0m:     info[[33m:players[0m].each [32mdo[0m |keys, values|
+    [1;34m139[0m:       [32mif[0m player_n == keys[[33m:player_name[0m]
+
